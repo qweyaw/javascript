@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>俄罗斯方块</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+
+    td {
+      border: 1px solid #000;
+      width: 25px;
+      height: 25px;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* 设置方块颜色 */
+    .color1 {
+      background-color: red;
+    }
+
+    .color2 {
+      background-color: blue;
+    }
+
+    .color3 {
+      background-color: green;
+    }
+
+    .color4 {
+      background-color: yellow;
+    }
+
+    .color5 {
+      background-color: orange;
+    }
+
+    .color6 {
+      background-color: purple;
+    }
+
+    .color7 {
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="./js/jquery.js"></script>
+  <script src="./js/Game.js"></script>
+  <script src="./js/type.js"></script>
+  <script src="./js/Block.js"></script>
+  <script src="./js/Map.js"></script>
+  <script>
+    let game = new Game()
+  </script>
+</body>
+
+</html>
