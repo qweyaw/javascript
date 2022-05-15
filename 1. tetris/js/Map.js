@@ -1,13 +1,32 @@
-function Map(mapGame) {
-  this.mapCode = new Array(20).fill([]);
-  for (let i = 0; i < 20; i++) {
-    for (let j = 0; j < 12; j++) {
-      this.mapCode[i][j] = 0;
-    }
-  }
+function gameMap(mapGame) {
+  this.mapCode = [
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+    [0, 0, 3, 2, 4, 2, 1, 0, 0, 0, 0, 0],
+    [9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9],
+  ];
   this.mapGame = mapGame;
 }
-Map.prototype.render = function () {
+
+// 渲染地图
+gameMap.prototype.render = function () {
   // 渲染地图
   for (let i = 0; i < this.mapGame.row; i++) {
     for (let j = 0; j < this.mapGame.col; j++) {
@@ -17,3 +36,19 @@ Map.prototype.render = function () {
     }
   }
 };
+
+// 是否消除
+gameMap.prototype.checkRemove = function () {
+  for (let i = 0; i < this.mapCode.length - 1; i++) {
+    if (this.mapCode[i].indexOf(0) === -1) {
+      this.mapCode.splice(i, 1);
+      // 补充一行
+      this.mapCode.unshift([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+      // 加分
+      game.score += 10;
+      $('#score').text('分数：' + game.score);
+    }
+  }
+}
+
+
